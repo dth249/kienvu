@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kiên Vũ – Dev Game Hoạt Hình</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff4d6;--card:#fff;--ink:#3a2a4d;--pink:#ff8db5;--yel:#ffd23f;--grn:#5ed16a;--blu:#6ec6ff;--sub:#6b5a7e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a2140;--card:#3a2f55;--ink:#fff4d6;--sub:#cdbfe6}}
+:root[data-theme="dark"]{--bg:#2a2140;--card:#3a2f55;--ink:#fff4d6;--sub:#cdbfe6}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Fredoka',system-ui,sans-serif;font-size:17px;line-height:1.6;background-image:radial-gradient(var(--pink) 2px,transparent 2px);background-size:34px 34px;background-position:0 0}
+body::before{content:"";position:fixed;inset:0;background:var(--bg);opacity:.88;z-index:-1}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:10px;background:var(--yel);border-bottom:4px solid var(--ink)}
+nav a{color:#3a2a4d;text-decoration:none;font-weight:700;padding:6px 14px;border:3px solid #3a2a4d;border-radius:99px;background:#fff;box-shadow:0 3px 0 #3a2a4d;transition:.15s}
+nav a.on,nav a:hover{background:var(--pink);transform:translateY(-2px)}
+main{max-width:900px;margin:0 auto;padding:18px 16px 40px}
+.card{background:var(--card);border:4px solid var(--ink);border-radius:26px;box-shadow:0 7px 0 var(--ink);padding:20px;margin:22px 0}
+h1,h2,h3{line-height:1.2;margin:.2em 0 .4em}
+h1{font-size:2.3rem}h2{font-size:1.6rem}
+.hero{text-align:center;background:var(--blu);color:#3a2a4d;position:relative;overflow:hidden}
+.avatar{width:130px;height:130px;margin:0 auto 10px;border-radius:50%;background:var(--yel);border:5px solid #3a2a4d;display:grid;place-items:center;font-size:4.5rem;animation:bob 2.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px) rotate(4deg)}}
+.tag{display:inline-block;background:#fff;border:3px solid #3a2a4d;border-radius:99px;padding:2px 14px;font-weight:700;margin:3px;color:#3a2a4d}
+.float{position:absolute;font-size:2rem;animation:bob 3s ease-in-out infinite}
+.btn{display:inline-block;font:inherit;font-weight:700;font-size:1.1rem;color:#3a2a4d;background:var(--grn);border:4px solid #3a2a4d;border-radius:99px;padding:10px 24px;box-shadow:0 5px 0 #3a2a4d;text-decoration:none;cursor:pointer;transition:.12s;margin:6px 4px}
+.btn:hover{transform:translateY(-2px) rotate(-1deg)}.btn:active{transform:translateY(4px);box-shadow:0 1px 0 #3a2a4d}
+.btn.alt{background:var(--yel)}.btn.pk{background:var(--pink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.mini{background:var(--card);border:3px solid var(--ink);border-radius:20px;padding:14px;box-shadow:0 5px 0 var(--ink)}
+.gcard{text-align:center}
+.thumb{height:130px;border-radius:16px;border:3px solid var(--ink);display:grid;place-items:center;font-size:4rem;margin-bottom:10px;color:#3a2a4d}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.stats div{background:#fff;border:3px solid #3a2a4d;border-radius:16px;padding:8px;font-weight:700}
+.stats b{display:block;font-size:1.6rem}
+.sub{color:var(--sub)}
+.tl{border-left:5px dashed var(--pink);padding-left:16px;margin-left:8px}
+.tl p{position:relative;margin:0 0 14px}.tl p::before{content:"⭐";position:absolute;left:-34px;top:0}
+.banner{border-radius:20px;border:4px solid var(--ink);padding:26px 14px;text-align:center;color:#3a2a4d}
+.banner .big{font-size:5rem;animation:bob 2.4s ease-in-out infinite}
+.steps{counter-reset:s;padding:0;list-style:none}
+.steps li{counter-increment:s;padding:6px 0 6px 46px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:0;top:4px;width:34px;height:34px;border-radius:50%;background:var(--yel);color:#3a2a4d;border:3px solid var(--ink);display:grid;place-items:center;font-weight:700}
+.pager{display:flex;justify-content:space-between;flex-wrap:wrap}
+footer{text-align:center;padding:20px;color:var(--sub);font-weight:500}
+</style>
+</head>
+<body>
+<nav id="nav"></nav>
+<main id="app"></main>
+<footer>© Kiên Vũ · Làm game bằng cả trái tim 💖</footer>
+<script>
+// ===== THÊM GAME MỚI: chỉ cần thêm 1 object vào mảng này =====
+const GAMES=[
+{id:'pho',name:'Phở Hà Lội',emoji:'🍜',color:'#ff8db5',url:'https://phohaloi.vercel.app/',
+ tag:'Game mô phỏng điều hành quán phở',
+ short:'Mở quán phở, nấu từng tô thơm lừng, phục vụ khách và phát triển cơ ngơi.',
+ intro:['Phở Hà Lội là game mô phỏng kinh doanh quán phở với phong cách hoạt hình dễ thương. Bạn sẽ bắt đầu từ một quán phở nhỏ, tự tay chuẩn bị từng tô phở nóng hổi và phục vụ những vị khách đủ kiểu tính cách.','Càng phục vụ tốt, quán càng đông: kiếm tiền, nâng cấp dụng cụ, mở rộng không gian và biến quán nhỏ thành thương hiệu phở được cả phố yêu thích. Game có nhạc nền vui tai, màn hình chào "Bắt đầu / Tiếp tục" và tự động lưu tiến trình.'],
+ feats:[['🍲','Nấu phở','Chuẩn bị tô phở theo yêu cầu của từng khách.'],['🧑‍🍳','Phục vụ khách','Khách đến liên tục, phục vụ nhanh để nhận tiền và tip.'],['⬆️','Nâng cấp quán','Dùng tiền lãi để cải thiện quán và mở rộng.'],['🎵','Nhạc nền vui nhộn','Âm nhạc và hình ảnh tươi sáng, dễ thương.'],['💾','Lưu tiến trình','Thoát ra vào lại vẫn chơi tiếp được.'],['📱','Chơi trên điện thoại','Giao diện toàn màn hình, tối ưu cho cảm ứng.']],
+ how:['Bấm "Bắt đầu" hoặc "Tiếp tục" ở trang chủ game.','Nhận đơn của khách và chuẩn bị đúng món.','Phục vụ nhanh để khách hài lòng, nhận tiền.','Dùng tiền nâng cấp quán và chinh phục mốc mới.']},
+{id:'buffet',name:'Tiệm Buffet Nhỏ',emoji:'🍲',color:'#ffd23f',url:'https://tiembuffet.vercel.app/',
+ tag:'Game quản lý tiệm buffet đáng yêu',
+ short:'Mở cửa tiệm buffet nhỏ, bày món, đón khách và làm tiệm ngày càng đông vui.',
+ intro:['Tiệm Buffet Nhỏ đưa bạn vào vai chủ một tiệm buffet xinh xắn. Nhiệm vụ của bạn là chuẩn bị đầy đủ các món ngon, giữ cho quầy buffet luôn đầy và chăm sóc từng vị khách ghé tiệm.','Khách ăn no nê, vui vẻ thì tiệm sẽ ngày một nổi tiếng. Hãy khéo léo quản lý món ăn, tiền bạc và phát triển tiệm nhỏ thành điểm hẹn ẩm thực được yêu thích với phong cách đồ hoạ hồng pastel ngọt ngào.'],
+ feats:[['🍱','Quầy buffet','Bày biện và giữ quầy luôn đầy món ngon.'],['🙋','Đón khách','Khách vào ra liên tục, mỗi người một sở thích.'],['💰','Quản lý thu chi','Tính toán để tiệm có lãi và phát triển.'],['🎀','Đồ hoạ ngọt ngào','Màu hồng pastel, dễ thương, dễ chơi.'],['📱','Chơi mọi nơi','Mở bằng trình duyệt, không cần cài đặt.'],['🆓','Chơi miễn phí','Bấm vào là chơi ngay.']],
+ how:['Bấm "Chơi ngay" và chờ tiệm chuẩn bị mở cửa.','Chuẩn bị món cho quầy buffet.','Đón khách và giữ cho mọi người hài lòng.','Thu tiền, nâng cấp và mở rộng tiệm.']},
+{id:'rau',name:'Sạp Rau Ngoài Chợ',emoji:'🥬',color:'#5ed16a',url:'https://sapbanrau.vercel.app/',
+ tag:'Game bán rau – Tiệm Rau Sạch',
+ short:'Nhập rau, trồng rau, thuê nhân viên và biến sạp nhỏ thành tiệm rau sạch nổi tiếng.',
+ intro:['Sạp Rau Ngoài Chợ là game mô phỏng bán rau với khẩu hiệu "Tươi Ngon – An Toàn – Không Hóa Chất". Bạn điều hành Tiệm Rau Sạch từ một sạp nhỏ ngoài chợ: nhập rau, bày hàng, đón khách và theo dõi doanh thu mỗi ngày.','Game có rất nhiều hệ thống để khám phá: nông trại tự trồng rau, tuyển nhân viên, chỉnh thực đơn, nâng cấp cửa hàng và trang trí sạp thật xinh. Ngoài ra còn nhiệm vụ, quà tặng, sự kiện và điểm danh đăng nhập mỗi ngày để bạn luôn có lý do quay lại.'],
+ feats:[['🧺','Bán rau','Bắt đầu phiên chợ, phục vụ khách và xem doanh thu hôm nay.'],['🌱','Nông trại','Tự trồng rau để có nguồn hàng tươi.'],['📦','Nhập rau','Nhập thêm hàng khi kho sắp hết.'],['👥','Nhân viên','Thuê thêm người phụ giúp sạp.'],['📋','Thực đơn & Nâng cấp','Chọn mặt hàng bán và nâng cấp cửa hàng.'],['🏮','Trang trí','Làm đẹp sạp theo gu của bạn.'],['🧾','Nhiệm vụ & Sự kiện','Làm nhiệm vụ, nhận quà, tham gia sự kiện.'],['📅','Đăng nhập hằng ngày','Điểm danh nhận thưởng mỗi ngày.']],
+ how:['Bấm "Bắt đầu bán rau" để mở phiên chợ.','Nhập rau hoặc trồng ở nông trại để có hàng.','Phục vụ khách, kiếm tiền và thuê nhân viên.','Nâng cấp, trang trí và làm nhiệm vụ nhận quà.']}
+];
+const $=s=>document.querySelector(s);
+const LINKS=[['#/','🏠 Trang chủ'],['#/games','🎮 Game']];
+function nav(h){$('#nav').innerHTML=LINKS.map(l=>`<a href="${l[0]}" class="${h===l[0]||(l[0]==='#/games'&&h.startsWith('#/game'))?'on':''}">${l[1]}</a>`).join('')}
+function gameCard(g){return `<div class="mini gcard"><div class="thumb" style="background:${g.color}">${g.emoji}</div><h3>${g.name}</h3><p class="sub">${g.short}</p><a class="btn alt" href="#/game/${g.id}">Chi tiết</a><a class="btn" href="${g.url}" target="_blank" rel="noopener">Chơi ngay</a></div>`}
+function home(){return `
+<section class="card hero"><span class="float" style="left:6%;top:12%">🎮</span><span class="float" style="right:7%;top:10%;animation-delay:.6s">⭐</span><span class="float" style="left:10%;bottom:10%;animation-delay:1s">🍜</span><span class="float" style="right:10%;bottom:12%;animation-delay:1.4s">🥬</span>
+<div class="avatar">🧑‍💻</div><h1>Xin chào, mình là Kiên Vũ!</h1>
+<p><span class="tag">🎮 Game Developer</span><span class="tag">🏡 Hải Dương</span><span class="tag">🇻🇳 Made in Vietnam</span></p>
+<p>Người đứng sau những tựa game mô phỏng kinh doanh dễ thương, chơi được ngay trên điện thoại.</p>
+<a class="btn pk" href="#/games">Xem game của mình 🎮</a>
+<div class="stats"><div><b>${GAMES.length}</b>Game</div><div><b>100%</b>Tự làm</div><div><b>∞</b>Ý tưởng</div></div></section>
+<section class="card"><h2>👋 Giới thiệu</h2>
+<p><b>Vũ Trung Kiên</b>, nghệ danh <b>Dev Kiên Vũ</b>, sinh ra và lớn lên ở <b>Hải Dương (cũ)</b> – mảnh đất nổi tiếng với bánh đậu xanh, vải thiều và những con người cần cù, chân chất.</p>
+<p>Mình là một trong những lập trình viên game độc lập (indie) người Việt đam mê tạo ra những trò chơi nhẹ nhàng, gần gũi, mang đậm hơi thở đời sống: quán phở đầu ngõ, tiệm buffet nhỏ hay sạp rau ngoài chợ. Mỗi game đều do mình tự nghĩ ý tưởng, thiết kế giao diện, viết code và chăm chút từng chi tiết.</p>
+<p>Mình tin rằng một game hay không cần quá phức tạp. Chỉ cần vui, dễ thương, mở lên là chơi được ngay, và mang đến cho người chơi vài phút thư giãn sau một ngày dài. 💖</p></section>
+<section class="card"><h2>🛠️ Mình làm được gì?</h2>
+<p><span class="tag" style="background:var(--pink)">Thiết kế ý tưởng game</span><span class="tag" style="background:var(--yel)">Lập trình HTML5 / JavaScript</span><span class="tag" style="background:var(--grn)">Thiết kế giao diện hoạt hình</span><span class="tag" style="background:var(--blu)">Tối ưu cho điện thoại</span><span class="tag" style="background:var(--pink)">Âm thanh &amp; nhạc nền</span><span class="tag" style="background:var(--yel)">Phát hành web (Vercel)</span></p></section>
+<section class="card"><h2>🗺️ Hành trình</h2><div class="tl">
+<p><b>Khởi đầu:</b> Từ niềm đam mê game, mình tự học lập trình và bắt tay làm những trò chơi đầu tiên.</p>
+<p><b>Phở Hà Lội:</b> Game mô phỏng quán phở – tựa game đánh dấu bước tiến lớn, với mong muốn đưa lên cả cửa hàng ứng dụng.</p>
+<p><b>Tiệm Buffet Nhỏ &amp; Sạp Rau:</b> Mở rộng sang những mô hình kinh doanh dễ thương khác.</p>
+<p><b>Tiếp theo:</b> Còn rất nhiều game mới đang được "nấu" – cứ theo dõi nhé! 🍳</p></div></section>
+<section class="card"><h2>🔥 Game nổi bật</h2><div class="grid">${GAMES.map(gameCard).join('')}</div></section>
+<section class="card" style="background:var(--yel);color:#3a2a4d;text-align:center"><h2>💌 Cùng chơi nhé!</h2><p>Nếu thấy game vui, hãy chia sẻ cho bạn bè và gia đình. Mỗi lượt chơi của bạn là động lực rất lớn để mình làm thêm game mới!</p></section>`}
+function games(){return `<section class="card hero"><h1>🎮 Sản phẩm game</h1><p>Chọn một game để xem chi tiết hoặc chơi ngay. Sẽ còn cập nhật thêm game mới!</p></section>
+<div class="grid">${GAMES.map(gameCard).join('')}<div class="mini gcard" style="border-style:dashed"><div class="thumb" style="background:var(--card)">🍳</div><h3>Đang nấu thêm...</h3><p class="sub">Game mới sắp ra mắt, đón chờ nhé!</p></div></div>`}
+function game(id){const i=GAMES.findIndex(g=>g.id===id);if(i<0)return home();const g=GAMES[i],p=GAMES[(i+GAMES.length-1)%GAMES.length],n=GAMES[(i+1)%GAMES.length];
+return `<section class="card"><div class="banner" style="background:${g.color}"><div class="big">${g.emoji}</div><h1>${g.name}</h1><span class="tag">${g.tag}</span></div>
+<p style="text-align:center"><a class="btn" style="font-size:1.3rem" href="${g.url}" target="_blank" rel="noopener">▶ Truy cập ngay</a></p></section>
+<section class="card"><h2>📖 Giới thiệu game</h2>${g.intro.map(t=>`<p>${t}</p>`).join('')}</section>
+<section class="card"><h2>✨ Tính năng nổi bật</h2><div class="grid">${g.feats.map(f=>`<div class="mini"><div style="font-size:2rem">${f[0]}</div><b>${f[1]}</b><div class="sub">${f[2]}</div></div>`).join('')}</div></section>
+<section class="card"><h2>🕹️ Cách chơi</h2><ol class="steps">${g.how.map(s=>`<li>${s}</li>`).join('')}</ol>
+<p style="text-align:center"><a class="btn" href="${g.url}" target="_blank" rel="noopener">▶ Chơi ngay</a></p></section>
+<div class="pager"><a class="btn alt" href="#/game/${p.id}">← ${p.name}</a><a class="btn alt" href="#/game/${n.id}">${n.name} →</a></div>`}
+function route(){const h=location.hash||'#/';nav(h);const m=h.match(/^#\/game\/(.+)$/);
+$('#app').innerHTML=m?game(m[1]):h==='#/games'?games():home();window.scrollTo(0,0)}
+addEventListener('hashchange',route);route();
+</script>
+</body>
+</html>
