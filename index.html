@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>.game khởi nghiệp by Kiên Vũ</title>
-<meta name="description" content="Tổng hợp các game mô phỏng hoạt hình dễ thương của dev Kiên Vũ: Phở Hà Lội, Tiệm Buffet Nhỏ, Sạp Rau Ngoài Chợ. Chơi ngay trên điện thoại!">
+<meta name="description" content="Tổng hợp các game mô phỏng hoạt hình dễ thương của dev Kiên Vũ: Phở Hà Lội, Tiệm Buffet Nhỏ, Sạp Rau Ngoài Chợ, Huế Chè. Chơi ngay trên điện thoại!">
 <meta property="og:type" content="website">
 <meta property="og:title" content=".game khởi nghiệp by Kiên Vũ">
-<meta property="og:description" content="Tổng hợp các game mô phỏng hoạt hình dễ thương của dev Kiên Vũ: Phở Hà Lội, Tiệm Buffet Nhỏ, Sạp Rau Ngoài Chợ. Chơi ngay trên điện thoại!">
+<meta property="og:description" content="Tổng hợp các game mô phỏng hoạt hình dễ thương của dev Kiên Vũ: Phở Hà Lội, Tiệm Buffet Nhỏ, Sạp Rau Ngoài Chợ, Huế Chè. Chơi ngay trên điện thoại!">
 <meta property="og:site_name" content=".game khởi nghiệp by Kiên Vũ">
 <meta name="theme-color" content="#ffd23f">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2' y='2' width='60' height='60' rx='16' fill='%23ff8db5' stroke='%233a2a4d' stroke-width='4'/%3E%3Cpath d='M16 24h32a8 8 0 0 1 8 8v8a6 6 0 0 1-10 4l-4-4H22l-4 4a6 6 0 0 1-10-4v-8a8 8 0 0 1 8-8z' fill='%23ffd23f' stroke='%233a2a4d' stroke-width='3'/%3E%3Crect x='15' y='30' width='12' height='4' fill='%233a2a4d'/%3E%3Crect x='19' y='26' width='4' height='12' fill='%233a2a4d'/%3E%3Ccircle cx='41' cy='30' r='3' fill='%233a2a4d'/%3E%3Ccircle cx='47' cy='36' r='3' fill='%233a2a4d'/%3E%3C/svg%3E">
@@ -86,7 +86,13 @@ const GAMES=[
  short:'Nhập rau, trồng rau, thuê nhân viên và biến sạp nhỏ thành tiệm rau sạch nổi tiếng.',
  intro:['Sạp Rau Ngoài Chợ là game mô phỏng bán rau với khẩu hiệu "Tươi Ngon – An Toàn – Không Hóa Chất". Bạn điều hành Tiệm Rau Sạch từ một sạp nhỏ ngoài chợ: nhập rau, bày hàng, đón khách và theo dõi doanh thu mỗi ngày.','Game có rất nhiều hệ thống để khám phá: nông trại tự trồng rau, tuyển nhân viên, chỉnh thực đơn, nâng cấp cửa hàng và trang trí sạp thật xinh. Ngoài ra còn nhiệm vụ, quà tặng, sự kiện và điểm danh đăng nhập mỗi ngày để bạn luôn có lý do quay lại.'],
  feats:[['🧺','Bán rau','Bắt đầu phiên chợ, phục vụ khách và xem doanh thu hôm nay.'],['🌱','Nông trại','Tự trồng rau để có nguồn hàng tươi.'],['📦','Nhập rau','Nhập thêm hàng khi kho sắp hết.'],['👥','Nhân viên','Thuê thêm người phụ giúp sạp.'],['📋','Thực đơn & Nâng cấp','Chọn mặt hàng bán và nâng cấp cửa hàng.'],['🏮','Trang trí','Làm đẹp sạp theo gu của bạn.'],['🧾','Nhiệm vụ & Sự kiện','Làm nhiệm vụ, nhận quà, tham gia sự kiện.'],['📅','Đăng nhập hằng ngày','Điểm danh nhận thưởng mỗi ngày.']],
- how:['Bấm "Bắt đầu bán rau" để mở phiên chợ.','Nhập rau hoặc trồng ở nông trại để có hàng.','Phục vụ khách, kiếm tiền và thuê nhân viên.','Nâng cấp, trang trí và làm nhiệm vụ nhận quà.']}
+ how:['Bấm "Bắt đầu bán rau" để mở phiên chợ.','Nhập rau hoặc trồng ở nông trại để có hàng.','Phục vụ khách, kiếm tiền và thuê nhân viên.','Nâng cấp, trang trí và làm nhiệm vụ nhận quà.']},
+{id:'che',name:'Huế Chè',emoji:'🍧',color:'#f08a24',url:'https://tiemchehue.vercel.app/',
+ tag:'Game mô phỏng quầy chè Huế',
+ short:'Mở quầy chè Huế, pha từng ly chè đủ topping, giao hàng bằng flycam và phát triển quán.',
+ intro:['Huế Chè là game mô phỏng kinh doanh quầy chè Huế với phong cách hoạt hình dễ thương. Bạn đặt tên cho quán, đứng quầy pha từng ly chè theo đúng yêu cầu của khách: chọn size ly, topping, nước, siro và đá.','Càng làm tốt, quán càng nổi tiếng: kiếm tiền, nhập nguyên liệu về kho, nâng cấp quầy, thuê nhân viên và mở khóa dần nhiều món mới. Có cả flycam giao chè tận nơi cho khách ở xa, đánh giá của khách và tự động lưu tiến trình.'],
+ feats:[['🥤','Pha chè','Pha đúng size ly, topping, nước, siro và đá theo yêu cầu.'],['🧑‍🤝‍🧑','Phục vụ khách','Khách xếp hàng gọi món, phục vụ nhanh trước khi hết kiên nhẫn.'],['📦','Nhập hàng & kho','Mua nguyên liệu về kho, làm ly nào trừ kho ly đó.'],['🚁','Flycam giao hàng','Ly giao xa được flycam chở đi, lên giá theo km.'],['⭐','Đánh giá & tin nhắn','Đọc đánh giá của khách và nhắn tin trả lời.'],['🎨','Đổi màu giao diện','Chọn màu giao diện theo gu của bạn.'],['🔓','Mở khóa dần','Càng chơi lâu càng có nhiều món và tính năng mới.'],['💾','Lưu tiến trình','Thoát ra vào lại vẫn chơi tiếp được.']],
+ how:['Đặt tên cho quán và bấm bắt đầu.','Đọc kỹ đơn của khách rồi pha đúng ly chè.','Phục vụ nhanh để khách hài lòng, nhận tiền.','Nhập hàng, nâng cấp quán và mở khóa món mới.']}
 ];
 const $=s=>document.querySelector(s);
 const LOGO=`<img class="logo" alt="logo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2' y='2' width='60' height='60' rx='16' fill='%23ff8db5' stroke='%233a2a4d' stroke-width='4'/%3E%3Cpath d='M16 24h32a8 8 0 0 1 8 8v8a6 6 0 0 1-10 4l-4-4H22l-4 4a6 6 0 0 1-10-4v-8a8 8 0 0 1 8-8z' fill='%23ffd23f' stroke='%233a2a4d' stroke-width='3'/%3E%3Crect x='15' y='30' width='12' height='4' fill='%233a2a4d'/%3E%3Crect x='19' y='26' width='4' height='12' fill='%233a2a4d'/%3E%3Ccircle cx='41' cy='30' r='3' fill='%233a2a4d'/%3E%3Ccircle cx='47' cy='36' r='3' fill='%233a2a4d'/%3E%3C/svg%3E">`;
@@ -117,6 +123,7 @@ function home(){return `
 <p><b>Khởi đầu:</b> Từ niềm đam mê game, mình tự học lập trình và bắt tay làm những trò chơi đầu tiên.</p>
 <p><b>Phở Hà Lội:</b> Game mô phỏng quán phở – tựa game đánh dấu bước tiến lớn, với mong muốn đưa lên cả cửa hàng ứng dụng.</p>
 <p><b>Tiệm Buffet Nhỏ &amp; Sạp Rau:</b> Mở rộng sang những mô hình kinh doanh dễ thương khác.</p>
+<p><b>Huế Chè:</b> Quầy chè Huế với đủ loại topping, siro và cả flycam giao hàng tận nơi.</p>
 <p><b>Tiếp theo:</b> Còn rất nhiều game mới đang được "nấu" – cứ theo dõi nhé! 🍳</p></div></section>
 <section class="card"><h2>🔥 Game nổi bật</h2><div class="grid">${GAMES.map(gameCard).join('')}</div></section>
 <section class="card" style="background:var(--yel);color:#3a2a4d;text-align:center"><h2>💌 Cùng chơi nhé!</h2><p>Nếu thấy game vui, hãy chia sẻ cho bạn bè và gia đình. Mỗi lượt chơi của bạn là động lực rất lớn để mình làm thêm game mới!</p></section>${contact()}`}
@@ -130,9 +137,18 @@ return `<section class="card"><div class="banner" style="background:${g.color}">
 <section class="card"><h2>🕹️ Cách chơi</h2><ol class="steps">${g.how.map(s=>`<li>${s}</li>`).join('')}</ol>
 <p style="text-align:center"><a class="btn" href="${g.url}" target="_blank" rel="noopener">▶ Chơi ngay</a></p></section>
 <div class="pager"><a class="btn alt" href="#/game/${p.id}">← ${p.name}</a><a class="btn alt" href="#/game/${n.id}">${n.name} →</a></div>`}
-function route(){const h=location.hash||'#/';nav(h);const m=h.match(/^#\/game\/(.+)$/);
+let cur=location.hash||'#/';
+function route(){const h=cur;nav(h);const m=h.match(/^#\/game\/(.+)$/);
 $('#app').innerHTML=m?game(m[1]):h==='#/games'?games():h==='#/contact'?contact():home();window.scrollTo(0,0)}
-addEventListener('hashchange',route);route();
+addEventListener('hashchange',()=>{const h=location.hash||'#/';if(h!==cur){cur=h;route()}});
+document.addEventListener('click',e=>{
+ const a=e.target.closest&&e.target.closest('a[href]');if(!a)return;
+ const href=a.getAttribute('href');
+ if(href.startsWith('#/')){e.preventDefault();cur=href;try{location.hash=href}catch(x){}route();return}
+ if(a.target==='_blank'){e.preventDefault();let w=null;try{w=window.open(a.href,'_blank','noopener')}catch(x){}
+  if(!w){try{window.top.location.href=a.href}catch(x){location.href=a.href}}}
+});
+route();
 </script>
 </body>
 </html>
