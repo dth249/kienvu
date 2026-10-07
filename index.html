@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Thông tin và Cổng game khởi nghiệp</title>
-<meta name="description" content="Tổng hợp các game mô phỏng hoạt hình dễ thương của dev Kiên Vũ: Phở Hà Lội, Tiệm Buffet Nhỏ, Sạp Rau Ngoài Chợ, Huế Chè. Chơi ngay trên điện thoại!">
+<meta name="description" content="Tổng hợp các game mô phỏng hoạt hình dễ thương của dev Kiên Vũ: Phở Hà Lội, Tiệm Buffet Nhỏ, Sạp Rau Ngoài Chợ, Huế Chè, Đồ Ăn Vặt. Chơi ngay trên điện thoại!">
 <meta property="og:type" content="website">
 <meta property="og:title" content=".game khởi nghiệp by Kiên Vũ">
-<meta property="og:description" content="Tổng hợp các game mô phỏng hoạt hình dễ thương của dev Kiên Vũ: Phở Hà Lội, Tiệm Buffet Nhỏ, Sạp Rau Ngoài Chợ, Huế Chè. Chơi ngay trên điện thoại!">
+<meta property="og:description" content="Tổng hợp các game mô phỏng hoạt hình dễ thương của dev Kiên Vũ: Phở Hà Lội, Tiệm Buffet Nhỏ, Sạp Rau Ngoài Chợ, Huế Chè, Đồ Ăn Vặt. Chơi ngay trên điện thoại!">
 <meta property="og:site_name" content=".game khởi nghiệp by Kiên Vũ">
 <meta name="theme-color" content="#ffd23f">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2' y='2' width='60' height='60' rx='16' fill='%23ff8db5' stroke='%233a2a4d' stroke-width='4'/%3E%3Cpath d='M16 24h32a8 8 0 0 1 8 8v8a6 6 0 0 1-10 4l-4-4H22l-4 4a6 6 0 0 1-10-4v-8a8 8 0 0 1 8-8z' fill='%23ffd23f' stroke='%233a2a4d' stroke-width='3'/%3E%3Crect x='15' y='30' width='12' height='4' fill='%233a2a4d'/%3E%3Crect x='19' y='26' width='4' height='12' fill='%233a2a4d'/%3E%3Ccircle cx='41' cy='30' r='3' fill='%233a2a4d'/%3E%3Ccircle cx='47' cy='36' r='3' fill='%233a2a4d'/%3E%3C/svg%3E">
@@ -92,7 +92,13 @@ const GAMES=[
  short:'Mở quầy chè Huế, pha từng ly chè đủ topping, giao hàng bằng flycam và phát triển quán.',
  intro:['Huế Chè là game mô phỏng kinh doanh quầy chè Huế với phong cách hoạt hình dễ thương. Bạn đặt tên cho quán, đứng quầy pha từng ly chè theo đúng yêu cầu của khách: chọn size ly, topping, nước, siro và đá.','Càng làm tốt, quán càng nổi tiếng: kiếm tiền, nhập nguyên liệu về kho, nâng cấp quầy, thuê nhân viên và mở khóa dần nhiều món mới. Có cả flycam giao chè tận nơi cho khách ở xa, đánh giá của khách và tự động lưu tiến trình.'],
  feats:[['🥤','Pha chè','Pha đúng size ly, topping, nước, siro và đá theo yêu cầu.'],['🧑‍🤝‍🧑','Phục vụ khách','Khách xếp hàng gọi món, phục vụ nhanh trước khi hết kiên nhẫn.'],['📦','Nhập hàng & kho','Mua nguyên liệu về kho, làm ly nào trừ kho ly đó.'],['🚁','Flycam giao hàng','Ly giao xa được flycam chở đi, lên giá theo km.'],['⭐','Đánh giá & tin nhắn','Đọc đánh giá của khách và nhắn tin trả lời.'],['🎨','Đổi màu giao diện','Chọn màu giao diện theo gu của bạn.'],['🔓','Mở khóa dần','Càng chơi lâu càng có nhiều món và tính năng mới.'],['💾','Lưu tiến trình','Thoát ra vào lại vẫn chơi tiếp được.']],
- how:['Đặt tên cho quán và bấm bắt đầu.','Đọc kỹ đơn của khách rồi pha đúng ly chè.','Phục vụ nhanh để khách hài lòng, nhận tiền.','Nhập hàng, nâng cấp quán và mở khóa món mới.']}
+ how:['Đặt tên cho quán và bấm bắt đầu.','Đọc kỹ đơn của khách rồi pha đúng ly chè.','Phục vụ nhanh để khách hài lòng, nhận tiền.','Nhập hàng, nâng cấp quán và mở khóa món mới.']},
+{id:'doanvat',name:'Đồ Ăn Vặt',emoji:'🌭',color:'#ff6b6b',url:'https://doanvat.vercel.app/',
+ tag:'Game xe bán hàng vặt vỉa hè',
+ short:'Mở xe bán đồ ăn vặt vỉa hè, chế biến món, phục vụ khách và phát triển quán ăn vặt.',
+ intro:['Đồ Ăn Vặt là game mô phỏng xe bán hàng vặt vỉa hè với phong cách hoạt hình dễ thương. Bạn đứng xe bán đủ loại đồ ăn vặt: trà đào, trà tắc, matcha, cacao đá, bánh tráng, xúc xích, cá viên chiên, phô mai que, khoai chiên, takoyaki và nhiều món khác.','Game có thời tiết 4 mùa, lưu tiến trình tự động, hệ thống kho nguyên liệu, dụng cụ nấu nướng (lò vi sóng, nồi luộc trứng, bếp gas) và cả đầu máy nhạc để bật nhạc cho khách nghe. Càng phục vụ tốt, quán càng đông và phát triển.'],
+ feats:[['🛒','Xe bán hàng vặt','Mở cửa quán, phục vụ khách vỉa hè Hà Nội.'],['🍹','Nhiều món ăn vặt','Trà, đồ chiên, trứng, topping và nước sốt đa dạng.'],['🌡️','Thời tiết 4 mùa','Trải nghiệm ngày nắng, mưa, lạnh theo mùa.'],['📦','Quản lý kho','Nhập ly, đĩa, nguyên liệu và theo dõi tồn kho.'],['🍳','Dụng cụ nấu','Lò vi sóng, nồi luộc trứng, bếp gas, tủ đông.'],['🎵','Đầu máy nhạc','Bật nhạc nền vui cho khách nghe khi chờ.'],['💾','Lưu tự động','Tiến trình được lưu, vào lại chơi tiếp được.'],['📱','Chơi trên điện thoại','Giao diện tối ưu cảm ứng, chơi ngay trên web.']],
+ how:['Bấm "Chơi mới" hoặc "Tiếp tục" ở màn hình chính.','Mở cửa quán và chuẩn bị món theo đơn khách.','Phục vụ nhanh, giữ kho đầy đủ nguyên liệu.','Kiếm tiền, nâng cấp và phát triển xe bán hàng vặt.']}
 ];
 const $=s=>document.querySelector(s);
 const LOGO=`<img class="logo" alt="logo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2' y='2' width='60' height='60' rx='16' fill='%23ff8db5' stroke='%233a2a4d' stroke-width='4'/%3E%3Cpath d='M16 24h32a8 8 0 0 1 8 8v8a6 6 0 0 1-10 4l-4-4H22l-4 4a6 6 0 0 1-10-4v-8a8 8 0 0 1 8-8z' fill='%23ffd23f' stroke='%233a2a4d' stroke-width='3'/%3E%3Crect x='15' y='30' width='12' height='4' fill='%233a2a4d'/%3E%3Crect x='19' y='26' width='4' height='12' fill='%233a2a4d'/%3E%3Ccircle cx='41' cy='30' r='3' fill='%233a2a4d'/%3E%3Ccircle cx='47' cy='36' r='3' fill='%233a2a4d'/%3E%3C/svg%3E">`;
@@ -124,6 +130,7 @@ function home(){return `
 <p><b>Phở Hà Lội:</b> Game mô phỏng quán phở – tựa game đánh dấu bước tiến lớn, với mong muốn đưa lên cả cửa hàng ứng dụng.</p>
 <p><b>Tiệm Buffet Nhỏ &amp; Sạp Rau:</b> Mở rộng sang những mô hình kinh doanh dễ thương khác.</p>
 <p><b>Huế Chè:</b> Quầy chè Huế với đủ loại topping, siro và cả flycam giao hàng tận nơi.</p>
+<p><b>Đồ Ăn Vặt:</b> Xe bán hàng vặt vỉa hè với thời tiết 4 mùa và đủ món ăn vặt.</p>
 <p><b>Tiếp theo:</b> Còn rất nhiều game mới đang được "nấu" – cứ theo dõi nhé! 🍳</p></div></section>
 <section class="card"><h2>🔥 Game nổi bật</h2><div class="grid">${GAMES.map(gameCard).join('')}</div></section>
 <section class="card" style="background:var(--yel);color:#3a2a4d;text-align:center"><h2>💌 Cùng chơi nhé!</h2><p>Nếu thấy game vui, hãy chia sẻ cho bạn bè và gia đình. Mỗi lượt chơi của bạn là động lực rất lớn để mình làm thêm game mới!</p></section>${contact()}`}
